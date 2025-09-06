@@ -5,9 +5,8 @@ import { Toaster } from "sonner";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "CSV Chatbot",
+  description: "Created with NextJs",
 };
 
 export default function RootLayout({
