@@ -162,7 +162,6 @@ const UploadPanel = (props: UploadPanelProps) => {
       });
 
       setFiles((prev) => {
-        // de-dupe by name/size/mtime
         const map = new Map(
           prev.map((p) => [
             `${p.file.name}-${p.file.size}-${p.file.lastModified}`,
@@ -193,7 +192,7 @@ const UploadPanel = (props: UploadPanelProps) => {
       }
     },
     [uploadedDocuments]
-  ); // Add uploadedDocuments as dependency
+  );
 
   const removeFile = (id: string) => {
     const removed = files.find((f) => f.id === id);
@@ -365,7 +364,6 @@ const UploadPanel = (props: UploadPanelProps) => {
         </ul>
       )}
 
-      {/* Content area - now naturally sized */}
       <div className="space-y-4">
         {files.length > 0 && (
           <div className="rounded-md border p-3">

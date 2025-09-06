@@ -70,7 +70,6 @@ export function ChatPanel({ selectedDocumentIds = [] }: ChatPanelProps) {
     if (!text || isLoading) return;
 
     if (selectedDocumentIds.length === 0) {
-      // Add a message to suggest selecting documents
       const warningMsg: Message = {
         id: crypto.randomUUID(),
         role: "assistant",
@@ -133,7 +132,6 @@ export function ChatPanel({ selectedDocumentIds = [] }: ChatPanelProps) {
       setIsLoading(false);
     }
 
-    // Scroll on next tick
     requestAnimationFrame(() => {
       scrollRef.current?.scrollTo({
         top: scrollRef.current.scrollHeight,

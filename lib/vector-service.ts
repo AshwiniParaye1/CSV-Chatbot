@@ -10,7 +10,6 @@ import { Document } from "@langchain/core/documents";
 import Papa from "papaparse";
 import { supabaseAdmin } from "./supabase";
 
-// Global variable to store the current chain
 let globalChain: any = null;
 let globalEmbeddings: OpenAIEmbeddings | null = null;
 

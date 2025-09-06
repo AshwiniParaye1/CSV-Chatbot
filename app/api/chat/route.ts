@@ -36,15 +36,10 @@ When in doubt, respond with "YES".
 
 export async function POST(request: NextRequest) {
   try {
-    console.log("Chat API called");
     const body = await request.json();
     const { message, documentIds } = body;
 
-    console.log("Received message:", message);
-    console.log("Document IDs:", documentIds);
-
     if (!message || typeof message !== "string") {
-      console.log("Invalid message format");
       return NextResponse.json(
         { error: "Message is required and must be a string" },
         { status: 400 }
@@ -52,14 +47,11 @@ export async function POST(request: NextRequest) {
     }
 
     if (message.trim().length === 0) {
-      console.log("Empty message");
       return NextResponse.json(
         { error: "Message cannot be empty" },
         { status: 400 }
       );
     }
-
-    console.log(`Processing chat message: ${message}`);
 
     // System prompt to filter out external questions
     const isDataRelatedQuestion = await checkIfDataRelated(message);
@@ -74,8 +66,6 @@ export async function POST(request: NextRequest) {
 
     // Query specific documents if provided, otherwise query all
     const answer = await querySpecificDocuments(message, documentIds);
-
-    console.log(`Generated answer for: ${message}`);
 
     return NextResponse.json({
       success: true,
