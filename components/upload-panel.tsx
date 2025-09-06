@@ -54,9 +54,7 @@ function makeId(seed: File) {
   return `${base}-${rand}`;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface UploadPanelProps {
-  // Add props here as needed
   onDocumentSelectionChange?: (selectedDocumentIds: string[]) => void;
 }
 
