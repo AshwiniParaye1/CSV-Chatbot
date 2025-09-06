@@ -8,7 +8,6 @@ async function checkIfDataRelated(message: string): Promise<boolean> {
   const model = new ChatOpenAI({
     model: "gpt-5-mini",
     openAIApiKey: process.env.OPENAI_API_KEY!,
-    temperature: 0,
   });
 
   const prompt = PromptTemplate.fromTemplate(`
