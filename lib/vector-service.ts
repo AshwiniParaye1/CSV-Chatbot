@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
@@ -78,7 +79,7 @@ export async function parseCsvToDocuments(
             );
           }
         },
-        error: (error) => {
+        error: ({ error }: any) => {
           reject(new Error(`Failed to parse CSV: ${error.message}`));
         },
       });
